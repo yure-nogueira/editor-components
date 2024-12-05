@@ -1,7 +1,9 @@
 import { Config } from '@stencil/core';
+import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'meditango-components',
+  plugins: [sass()],
   outputTargets: [
     {
       type: 'dist',
@@ -21,6 +23,6 @@ export const config: Config = {
     },
   ],
   testing: {
-    browserHeadless: "new",
+    browserHeadless: 'new',
   },
 };

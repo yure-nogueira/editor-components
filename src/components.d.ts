@@ -6,56 +6,36 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface MtHeading {
+        "color": string;
+        "type": 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLMtHeadingElement extends Components.MtHeading, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLMtHeadingElement: {
+        prototype: HTMLMtHeadingElement;
+        new (): HTMLMtHeadingElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "mt-heading": HTMLMtHeadingElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface MtHeading {
+        "color"?: string;
+        "type"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "mt-heading": MtHeading;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "mt-heading": LocalJSX.MtHeading & JSXBase.HTMLAttributes<HTMLMtHeadingElement>;
         }
     }
 }
